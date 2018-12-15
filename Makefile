@@ -1,14 +1,15 @@
 CFLAGS=-c -Wall -O2
 
-all: libccs811.a
+all: ccs811demo
 
 libccs811.a: ccs811.o
-	ar -rc libccs811.a ccs811.o -o ;\
-	sudo cp libccs811.a /usr/local/lib ;\
-	sudo cp ccs811.h /usr/local/include
+	$(AR) rcs $@ $^
 
-ccs811.o: ccs811.c
-	$(CC) $(CFLAGS) ccs811.c
+%.o : %.c
+	$(CC) -I. -c $(CFLAGS) $< -o $@
+        
+ccs811demo: ccs811demo.o libccs811.a
+	$(CC) $(CFLAGS) $^ -o $@ -L. -lccs811
 
 clean:
-	rm *.o libccs811.a
+	-rm *.o libccs811.a ccs811demo
