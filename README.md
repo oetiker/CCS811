@@ -21,4 +21,8 @@ $ docker run -v $(pwd)/Omega2ccs811:/root/Omega2ccs811 -it \
 docker# cd ~/Omega2ccs811
 docker# sh xCompile.sh -buildroot /root/source
 ```
+
+The repo also contains a pure python script for accessing the sensor:
+ccs811demo.py
+
 Tobi Oetiker <tobi@oetiker.ch>
