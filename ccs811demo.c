@@ -32,7 +32,7 @@ int eCO2, TVOC;
 	// Check which I2C channel you're using
 	// Raspberry Pi's usually use channel 1
 	// Other ARM boards tend to use channel 0
-	i = ccs811Init(0, 0x5B);
+	i = ccs811Init(0, 0x5A);
 	if (i != 0)
 	{
 		return -1; // problem - quit
